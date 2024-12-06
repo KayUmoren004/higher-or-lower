@@ -145,7 +145,8 @@ export default function HigherLowerGame() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start justify-center w-full max-w-6xl mx-auto my-auto">
       <div className="md:col-span-3 flex flex-wrap gap-8 items-start justify-center w-full mb-8">
-        <div className="w-full md:w-auto flex flex-col items-center">
+        {/* Deck */}
+        <div className="w-full md:w-auto flex flex-col items-center order-1">
           <h2 className="text-2xl font-bold mb-4">Deck</h2>
           <div className="relative w-24 h-36">
             {[...Array(Math.min(5, deck.length))].map((_, index) => (
@@ -162,7 +163,8 @@ export default function HigherLowerGame() {
           </div>
           <p className="mt-10 text-lg">Cards remaining: {deck.length}</p>
         </div>
-        <div className="w-full md:w-auto flex flex-col items-center">
+        {/* Current Card */}
+        <div className="w-full order-3 md:order-2 md:w-auto flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-4">Current Card</h2>
           <CardDisplay card={currentCard} />
           <div className="mt-20 space-x-4">
@@ -180,7 +182,8 @@ export default function HigherLowerGame() {
             </Button>
           </div>
         </div>
-        <div className="w-full md:w-auto flex flex-col items-center">
+        {/* Next Card */}
+        <div className="w-full order-2 md:order-3 md:w-auto flex flex-col items-center">
           <h2 className="text-2xl font-bold mb-4">Next Card</h2>
           <CardDisplay card={nextCard} hidden={gameStatus === "playing"} />
         </div>
